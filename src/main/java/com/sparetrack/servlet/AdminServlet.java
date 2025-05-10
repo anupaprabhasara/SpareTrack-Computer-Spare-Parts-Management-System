@@ -38,7 +38,7 @@ public class AdminServlet extends HttpServlet {
             response.setContentType("text/html");
             response.getWriter().println("<script type=\"text/javascript\">");
             response.getWriter().println("alert('You do not have permission to access this page.');");
-            response.getWriter().println("window.location = '" + request.getContextPath() + "/dashboard';");
+            response.getWriter().println("window.location = '" + request.getContextPath() + "/part';");
             response.getWriter().println("</script>");
             return;
         }
