@@ -32,16 +32,6 @@ public class SparePartServlet extends HttpServlet {
         request.setAttribute("name", session.getAttribute("name"));
         request.setAttribute("role", session.getAttribute("role"));
 
-        String role = (String) session.getAttribute("role");
-        if (!"Admin".equalsIgnoreCase(role)) {
-            response.setContentType("text/html");
-            response.getWriter().println("<script type=\"text/javascript\">");
-            response.getWriter().println("alert('You do not have permission to access this page.');");
-            response.getWriter().println("window.location = '" + request.getContextPath() + "/part';");
-            response.getWriter().println("</script>");
-            return;
-        }
-
         if (action == null) {
             request.setAttribute("parts", sparePartService.getAllSpareParts());
             request.getRequestDispatcher("app/parts/index.jsp").forward(request, response);
